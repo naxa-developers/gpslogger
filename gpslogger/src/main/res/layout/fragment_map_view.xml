@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context="com.mendhak.gpslogger.GpsMainActivity">
 
 
@@ -11,5 +12,93 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal" />
+    <LinearLayout
+        android:id="@+id/interfaces_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/map_interfaces"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/btnActionProcess"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_start_logging"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            custom:pb_colorComplete="@color/green_complete"
+            custom:pb_colorNormal="@color/accentColorComplementary"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/purple_progress"
+            custom:pb_textComplete="Success"
+            custom:pb_textProgress="Loading"
+            custom:pb_textError="Error"
+            custom:pb_colorError="@color/red_error" />
+        <ImageView
+            android:id="@+id/simpleview_imgSatelliteCount"
+            android:layout_width="@dimen/mapview_iconwidth"
+            android:layout_height="@dimen/mapview_iconheight"
+            android:src="@drawable/satellite_count"
+            android:contentDescription="@string/txt_satellites"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/simpleview_txtSatelliteCount"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="24sp"
+            android:layout_height="wrap_content"
+            android:selectAllOnFocus="true"
+            android:textIsSelectable="true"
+            />
+        <ImageView
+            android:id="@+id/simpleview_imgAccuracy"
+            android:layout_width="@dimen/mapview_iconwidth"
+            android:layout_height="@dimen/mapview_iconheight"
+            android:src="@drawable/accuracy"
+            android:contentDescription="@string/txt_accuracy"
+            />
+        <TextView
+            android:id="@+id/simpleview_accuracy"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="24sp"
+            android:layout_height="wrap_content"
+            android:selectAllOnFocus="true"
+            android:textIsSelectable="true"
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/zoom_interfaces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/simpleview_imgAltitude"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/mapview_iconwidth"
+                android:layout_height="@dimen/mapview_iconheight"
+                android:contentDescription="@string/txt_altitude"
+                android:src="@drawable/my_location"
+                />
+        </LinearLayout>
+    </LinearLayout>
 
-</RelativeLayout>
+</FrameLayout>

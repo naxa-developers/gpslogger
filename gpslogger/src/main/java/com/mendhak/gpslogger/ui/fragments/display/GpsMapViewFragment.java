@@ -24,6 +24,7 @@ import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.dd.processbutton.iml.ActionProcessButton;
 import com.mendhak.gpslogger.R;
 import com.mendhak.gpslogger.common.EventBusHook;
 import com.mendhak.gpslogger.common.Session;
@@ -52,10 +54,20 @@ public class GpsMapViewFragment extends GenericViewFragment implements View.OnCl
     private MapView mMapView;
     private Context mContext;
     private Session session = Session.getInstance();
+    private ActionProcessButton actionButton;
 
     public static GpsMapViewFragment newInstance() {
         GpsMapViewFragment fragment = new GpsMapViewFragment();
+        Bundle bundle = new Bundle(1);
+        bundle.putInt("a_number", 1);
+
+        fragment.setArguments(bundle);
         return fragment;
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -89,6 +101,7 @@ public class GpsMapViewFragment extends GenericViewFragment implements View.OnCl
 
         return rootView;
     }
+
     @EventBusHook
     public void onEventMainThread(ServiceEvents.LocationUpdate locationUpdate){
         displayLocationOnMap(locationUpdate.location);
