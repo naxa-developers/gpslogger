@@ -675,6 +675,9 @@ public class GpsMainActivity extends AppCompatActivity
             case 3:
                 transaction.replace(R.id.container, GpsLogViewFragment.newInstance());
                 break;
+            case 4:
+                transaction.replace(R.id.container, GpsMapViewFragment.newInstance());
+                break;
 
         }
         transaction.commitAllowingStateLoss();
